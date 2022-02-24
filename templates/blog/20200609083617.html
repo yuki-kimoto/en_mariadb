@@ -1,10 +1,10 @@
-<h2> Change field definition --alter table change column statement </ h2>
+<h2> Change field definition --alter table change column statement </h2>
 
 Use the "alter table change column statement" to change the field definition.
 
 <pre>
 alter table table name change column field name to be changed field name after change field definition
-</ pre>
+</pre>
 
 Field definitions can specify data types, NULL constraints, default values, and so on.
 
@@ -12,13 +12,13 @@ This is a sample of "alter table change column statement".
 
 <pre>
 alter table book change column author author varchar (150) not null defatul'';
-</ pre>
+</pre>
 
-<h3> Is it possible to change only the field name with the alter table change column statement? </ h3>
+<h3> Is it possible to change only the field name with the alter table change column statement? </h3>
 
 You cannot change just the field names in MariaDB. Even if you only change the field name, you still need to write the field definition.
 
-<h3> "alter table change column statement" is slow when there are many rows </ h3>
+<h3> "alter table change column statement" is slow when there are many rows </h3>
 
 It is unavoidable that the "alter table change column statement" is slow when there are many rows.
 

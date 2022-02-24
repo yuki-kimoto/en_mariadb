@@ -1,4 +1,4 @@
-<h2> Reset root password </ h2>
+<h2> Reset root password </h2>
 
 This is the procedure for resetting the root password. Use it if you forget the root user password and cannot enter it as an administrator.
 
@@ -7,14 +7,14 @@ You can log in without user authentication by restarting the MariaDB server with
 <pre>
 [mysqld]
 skip-grant-tables
-</ pre>
+</pre>
 
-Reference: <a href="https://en.ubuntu.perlzemi.com/blog/20200417174004.html"> Restart MariaDB on Ubuntu </a>
+Reference: <a href="https://en.ubuntu.perlzemi.com/blog/20200417174004.html"> Restart MariaDB on Ubuntu</a>
 
 In this state, follow the procedure for setting the root password.
 
 <ul>
-   <li> <a href="/blog/20200616142021.html"> Set root password </a> </ li>
-</ ul>
+   <li> <a href="/blog/20200616142021.html"> Set root password</a> </li>
+</ul>
 
 After resetting the root password, be sure to remove the "skip-grant-tables" in the MariaDB config file and reboot.

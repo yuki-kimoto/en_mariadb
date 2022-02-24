@@ -1,4 +1,4 @@
-<h2> create table --create table </ h2>
+<h2> create table --create table </h2>
 
 Use the "create table" syntax to create a table.
 
@@ -8,7 +8,7 @@ create table table name (
   Field definition 2,
   Field definition n
 ) Options;
-</ pre>
+</pre>
 
 This is a sample to create a book classification "book_category" table with "create table" syntax.
 
@@ -17,19 +17,19 @@ create table book_category (
   id int primary key auto_increment,
   name varchar (150) not null default''''
 ) engine = InnoDB charset = utf8mb4;
-</ pre>
+</pre>
 
-<h3> What are the precautions when creating a table? </ H3>
+<h3> What are the precautions when creating a table? </H3>
 
 Here are some things to keep in mind when creating a table.
 
-<h4> Database table and field name naming conventions </ h4>
+<h4> Database table and field name naming conventions </h4>
 
 Since I often use databases when actually developing Web services, I created a topic for naming conventions for database table names and field names in Mojolicious startup.
 
-<a href="https://en.webapp.perlzemi.com/blog/20191113074356.html"> Database table and field name naming conventions </a>
+<a href="https://en.webapp.perlzemi.com/blog/20191113074356.html"> Database table and field name naming conventions</a>
 
-<h4> How to make a portable "create table"? </ H4>
+<h4> How to make a portable "create table"? </H4>
 
 MariaDB has the concept of a database engine, but the database engine used for Web service development is InnoDB. InnoDB is a transaction-supported database engine. Specify this as an option.
 

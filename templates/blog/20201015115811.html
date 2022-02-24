@@ -1,4 +1,4 @@
-<h2> Output the contents of the table as CSV </ h2>
+<h2> Output the contents of the table as CSV </h2>
 
 To output the contents of the table as CSV, specify "in to out file" in the select statement. Specify "," as the delimiter and "" "in the character string enclosure.
 
@@ -7,12 +7,12 @@ select * from book
    into outfile'/tmp/book.csv'
    fields terminated by','
    optionally enclosed by'"';
-</ pre>
+</pre>
 
 Since the file is output with MariaDB user's authority, it is output to "/ tmp" that anyone can write.
 
 The method of reading the output CSV is explained below.
 
 <ul>
-   <li> <a href="/blog/20201014115811.html"> Read CSV file data into table </a> </ li>
-</ ul>
+   <li> <a href="/blog/20201014115811.html"> Read CSV file data into table</a> </li>
+</ul>

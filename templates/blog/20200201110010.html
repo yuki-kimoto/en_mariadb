@@ -1,4 +1,4 @@
-<h2> Check the table capacity and database capacity with MariaDB </ h2>
+<h2> Check the table capacity and database capacity with MariaDB </h2>
 
 How to check table capacity and database capacity in MariaDB.
 
@@ -8,7 +8,7 @@ It is useful to be able to check the capacity of the table, such as when you wan
 
 We will also introduce commands that can check the capacity of the entire database.
 
-<h3> Check the capacity of the table </ h3>
+<h3> Check the capacity of the table </h3>
 
 SQL to check the capacity of the table. The data capacity, index capacity, and total capacity obtained by adding them are displayed. The number of rows in the table (table_rows) and the average size of the columns (avg_row_length) are also displayed. Sorted in descending order of total size.
 
@@ -16,9 +16,9 @@ SQL to check the capacity of the table. The data capacity, index capacity, and t
 # SQL to check the capacity of the table
 select
   table_name,
-  floor ((data_length + index_length) / 1024/1024) as total_size_MB,
-  floor ((data_length) / 1024/1024) as data_size_MB,
-  floor ((index_length) / 1024/1024) as index_size_MB,
+  floor((data_length + index_length) / 1024/1024) as total_size_MB,
+  floor((data_length) / 1024/1024) as data_size_MB,
+  floor((index_length) / 1024/1024) as index_size_MB,
   table_rows,
   avg_row_length
 from
@@ -28,7 +28,7 @@ where
 order by
   (data_length + index_length) desc
 ;
-</ pre>
+</pre>
 
 This is a sample SQL output to check the capacity of the table.
 
@@ -40,16 +40,16 @@ book | 304 | 179 | 125 | 344669 | 547 |
 | author | 157 | 104 | 52 | 1212336 | 90 |
 Publisher | 138 | 138 | 0 | 2467485 | 58 |
 + ---------------------------- + ----------------- + ---- ---------- + --------------- + ------------ + ---------- ------ +
-</ pre>
+</pre>
 
-<h3> Check the capacity of the database </ h3>
+<h3> Check the capacity of the database </h3>
 
 SQL to check the capacity of the database. It is calculated by summing the capacity of the table.
 
 <pre>
 # SQLDB size to check database capacity
 select
-  table_schema, floor (sum (data_length) /1024/1024) as database_size_MB
+  table_schema, floor(sum (data_length) /1024/1024) as database_size_MB
 from
   information_schema.tables
 group by group by
@@ -57,7 +57,7 @@ group by group by
 order by
   sum (data_length + index_length) desc
 ;
-</ pre>
+</pre>
 
 This is a sample output result to check the capacity of the database.
 
@@ -68,4 +68,4 @@ This is a sample output result to check the capacity of the database.
 | perlzemi | 660 |
 | kimoto_system | 50 |
 + -------------------- + ------------------ +
-</ pre>
+</pre>

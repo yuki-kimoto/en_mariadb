@@ -1,42 +1,42 @@
-<h2> Create an index </ h2>
+<h2> Create an index </h2>
 
 Use the "alter table ~ add index" command to create an index.
 
 <pre>
 alter table table name add index index name (column name);
-</ pre>
+</pre>
 
 This is a sample to create an index on author_id of book table. You can use any index name you like, but try to use a descriptive name.
 
 <pre>
 alter table book add index book_author_id (author_id);
-</ pre>
+</pre>
 
 If you want to check the created index, please refer to the following article.
 
 <ul>
-  <li> <a href="/blog/20200203093958.html"> Check the index </a> </ li>
-</ ul>
+  <li> <a href="/blog/20200203093958.html"> Check the index</a> </li>
+</ul>
 
 If you want to delete the index, please refer to the following article.
 
 <ul>
-  <li> <a href="/blog/20200204093958.html"> Delete index </a> </ li>
-</ ul>
+  <li> <a href="/blog/20200204093958.html"> Delete index</a> </li>
+</ul>
 
-<h3> What is an index? </ H3>
+<h3> What is an index? </H3>
 
 Indexing is a technique for improving the performance of row selection.
 
-<h4> Index makes select dramatically faster </ h4>
+<h4> Index makes select dramatically faster </h4>
 
-In the case of a linear search that searches line by line, the amount of calculation is O (n), but when an index is created, the search is performed using an algorithm called a balance tree, so the amount of calculation is O (log (n)). Become.
+In the case of a linear search that searches line by line, the amount of calculation is O (n), but when an index is created, the search is performed using an algorithm called a balance tree, so the amount of calculation is O (log(n)). Become.
 
 In general, index the fields you are searching for in a table with a large number of rows.
 
 Creating an index makes select dramatically faster.
 
-<h4> Disadvantages of creating an index </ h4>
+<h4> Disadvantages of creating an index </h4>
 
 There is also the disadvantage of creating an index.
 

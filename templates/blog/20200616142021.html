@@ -1,4 +1,4 @@
-<h2> Set root password </ h2>
+<h2> Set root password </h2>
 
 I will explain how to set the root password.
 
@@ -6,36 +6,36 @@ The root password is not set in the initial state of MariaDB. Follow the steps b
 
 If not set, anyone can perform all operations on the database, which poses a high security risk.
 
-First, as the root user, <a href="/blog/20200309102346.html"> connect to the MariaDB database </a> without a password.
+First, as the root user, <a href="/blog/20200309102346.html"> connect to the MariaDB database</a> without a password.
 
 <pre>
 mysql -uroot
-</ pre>
+</pre>
 
 Change the database to "mysql".
 
 <pre>
 use mysql
-</ pre>
+</pre>
 
-<h3> Set root password </ h3>
+<h3> Set root password </h3>
 
 Set the root password.
 
 <pre>
 update user set Password = password ('ghrudifA! &') Where User ='root';
 flush privileges;
-</ pre>
+</pre>
 
-<h3> If you forget your root password </ h3>
+<h3> If you forget your root password </h3>
 
 If you have forgotten your root password, follow these steps:
 
 <ul>
-  <li> <a href="/blog/20200617142021.html"> Reset the root password </a> </ li>
-</ ul>
+  <li> <a href="/blog/20200617142021.html"> Reset the root password</a> </li>
+</ul>
 
-<h3> Difference between MySQL and MariaDB root password settings </ h3>
+<h3> Difference between MySQL and MariaDB root password settings </h3>
 
 Since MySQL 5.7.6, root password setting seems to be done using the authentication_string field instead of the Password field.
 

@@ -1,24 +1,24 @@
-<h2> explain --View SQL execution plan for SQL performance investigation </ h2>
+<h2> explain --View SQL execution plan for SQL performance investigation </h2>
 
 You can use the explain command to see the SQL execution plan. When investigating SQL performance, the first command to try is explain.
 
 <pre>
 explain SQL you want to check
-</ pre>
+</pre>
 
 This is a sample that uses explain to investigate the performance of the SQL "select * from book where author_id = 4;". Just add explain before SQL.
 
 <pre>
 explain select * from book where author_id = 4;
-</ pre>
+</pre>
 
 
-<h3> Highlights of performance survey </ h3>
+<h3> Highlights of performance survey </h3>
 
 This is the highlight of the performance survey.
 
-<h4> Is the index used as the most important point of the performance survey? </ H4>
+<h4> Is the index used as the most important point of the performance survey? </H4>
 
 The most important point in SQL performance research is whether indexes are used.
 
-If you have a table with tens of thousands or more rows and you are linearly searching all the rows, SQL is dramatically slower. You need to modify the SQL or <a href="/blog/20200207093958.html"> create an index </a> so that the index is used.
+If you have a table with tens of thousands or more rows and you are linearly searching all the rows, SQL is dramatically slower. You need to modify the SQL or <a href="/blog/20200207093958.html"> create an index</a> so that the index is used.

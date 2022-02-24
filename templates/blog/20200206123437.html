@@ -1,10 +1,10 @@
-<h2> Check foreign key constraints </ h2>
+<h2> Check foreign key constraints </h2>
 
 To check the foreign key constraints, execute the "show create table" command and check "CONSTRAINT ~ FOREIGN KEY".
 
 <pre>
 show create table book;
-</ pre>
+</pre>
 
 This is a sample output result. You can see that the foreign key constraint is set.
 
@@ -13,4 +13,4 @@ CREATE TABLE `book` (
    ...
    CONSTRAINT `book_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `author` (`id`),
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4
-</ pre>
+</pre>

@@ -1,4 +1,4 @@
-<h2> Read CSV file data into table </ h2>
+<h2> Read CSV file data into table </h2>
 
 Use "load data local in file" to load the CSV file data into the table. Specify "," as the delimiter and "" "in the character string enclosure.
 
@@ -6,7 +6,7 @@ Use "load data local in file" to load the CSV file data into the table. Specify 
 load data local infile'/tmp/book.csv'
   into table book fields terminated by','
   optionally enclosed by'"';
-</ pre>
+</pre>
 
 If the CSV column order and the field order are different, it cannot be read correctly.
 
@@ -17,7 +17,7 @@ load data local infile'/tmp/book.csv'
   into table book fields terminated by','
   optionally enclosed by'"'
 (id, price, name, author_id);
-</ pre>
+</pre>
 
 If you want to skip the column, use an appropriate variable name.
 
@@ -25,13 +25,13 @@ If you want to skip the column, use an appropriate variable name.
 load data local infile'/tmp/book.csv'
   into table book fields terminated by','
   optionally enclosed by'"'
-(id, price, @ tmp1, name, author_id);
-</ pre>
+(id, price, @tmp1, name, author_id);
+</pre>
 
-<h3> Output the contents of the table as CSV </ h3>
+<h3> Output the contents of the table as CSV </h3>
 
 The method of outputting the contents of the table as CSV is explained below.
 
 <ul>
-  <li> <a href="/blog/20201015115811.html"> Output the contents of the table as CSV </a> </ li>
-</ ul>
+  <li> <a href="/blog/20201015115811.html"> Output the contents of the table as CSV</a> </li>
+</ul>

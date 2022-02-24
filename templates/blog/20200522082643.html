@@ -1,8 +1,8 @@
-<h2> Password settings, database and table access permissions --grant command </ h2>
+<h2> Password settings, database and table access permissions --grant command </h2>
 
 Use the grant command to set passwords and database and table permissions for users.
 
-You can give one user all privileges and one user only select privileges. <a href="/blog/20200523082643.html"> Create a user </a> should be done in advance.
+You can give one user all privileges and one user only select privileges. <a href="/blog/20200523082643.html"> Create a user</a> should be done in advance.
 
 You can also set permissions for all tables in this database.
 
@@ -10,7 +10,7 @@ The syntax of the grant command.
 
 <pre>
 grant permission type on database name. table name to'username' @'hostname' identified by'password';
-</ pre>
+</pre>
 
 Privilege types include "all" that grants all privileges including alter table, "insert" that grants only insert privileges, "update" that grants only update privileges, "delte" that grants only delete privileges, and select privileges only. For example, "select" to give.
 
@@ -22,26 +22,26 @@ The user name, host name, and password are strings.
 
 For the host name, specify "%" when accessing only locally, and specify the "ip address" of that remote when accessing from a specific remote. You can use the string "%" to specify all local and remote access. In general, access control is done using a firewall instead of mariadb's function, so "%" is fine.
 
-<h3> Give all privileges </ h3>
+<h3> Give all privileges </h3>
 
 Grant all permissions to all tables in a particular database.
 
 <pre>
 grant all on my database. * to'kimotoall'@'%' identified by'eifjutab &';
-</ pre>
+</pre>
 
-<h3> Allow insert, update, delete, select for application </ h3>
+<h3> Allow insert, update, delete, select for application </h3>
 
 Give insert, update, delete, select permissions to all tables in a particular database.
 
 <pre>
 grant insert, update, delete, select on mydatabase. * to'kimotoapp' @'%' identified by'eifjutab &';
-</ pre>
+</pre>
 
-<h3> Allow only select for reference </ h3>
+<h3> Allow only select for reference </h3>
 
 Give select permission to all tables in a particular database.
 
 <pre>
 grant select on mydatabase. * to'kimotoselect' @'%' identified by'eifjutab &';
-</ pre>
+</pre>
