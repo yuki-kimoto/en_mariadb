@@ -1,71 +1,71 @@
-<h2>MariaDBでテーブルの容量とデータベースの容量を確認する</h2>
+<h2> Check the table capacity and database capacity with MariaDB </ h2>
 
-MariaDBで、テーブルの容量とデータベースの容量を確認する方法です。
+How to check table capacity and database capacity in MariaDB.
 
-MariaDBでデータベースを運用していると、ログを書き込んでいるテーブルなど、容量がどんどん増えてきますね。
+If you operate a database with MariaDB, the capacity of the table to which the log is written will increase steadily.
 
-定期的に不要な過去のログのデータを削除したい場合など、テーブルの容量を確認できると便利です。
+It is useful to be able to check the capacity of the table, such as when you want to delete unnecessary past log data on a regular basis.
 
-データベース全体の容量を確認できるコマンドを合わせて紹介します。
+We will also introduce commands that can check the capacity of the entire database.
 
-<h3>テーブルの容量を確認</h3>
+<h3> Check the capacity of the table </ h3>
 
-テーブルの容量を確認するSQLです。データ容量、インデックス容量、それらを足した総容量を表示しています。テーブルの行数(table_rows)と、列の平均サイズ(avg_row_length)も合わせて表示しています。合計サイズの降順でソートしています。
+SQL to check the capacity of the table. The data capacity, index capacity, and total capacity obtained by adding them are displayed. The number of rows in the table (table_rows) and the average size of the columns (avg_row_length) are also displayed. Sorted in descending order of total size.
 
 <pre>
-# テーブルの容量を確認するSQL
-select  
+# SQL to check the capacity of the table
+select
   table_name,
-  floor((data_length+index_length)/1024/1024) as total_size_MB,
-  floor((data_length)/1024/1024) as data_size_MB,
-  floor((index_length)/1024/1024) as index_size_MB,
+  floor ((data_length + index_length) / 1024/1024) as total_size_MB,
+  floor ((data_length) / 1024/1024) as data_size_MB,
+  floor ((index_length) / 1024/1024) as index_size_MB,
   table_rows,
   avg_row_length
-from 
-  information_schema.tables  
+from
+  information_schema.tables
 where
-  table_schema=database()  
+  table_schema = database ()
 order by
-  (data_length+index_length) desc
+  (data_length + index_length) desc
 ;
-</pre>
+</ pre>
 
-テーブルの容量を確認するSQLの出力結果のサンプルです。
-
-<pre>
-+----------------------------+---------------+--------------+---------------+------------+----------------+
-| table_name                 | total_size_MB | data_size_MB | index_size_MB | table_rows | avg_row_length |
-+----------------------------+---------------+--------------+---------------+------------+----------------+
-| book                       |           304 |          179 |           125 |     344669 |            547 |
-| author                     |           157 |          104 |            52 |    1212336 |             90 |
-| publisher                  |           138 |          138 |             0 |    2467485 |             58 |
-+----------------------------+---------------+--------------+---------------+------------+----------------+
-</pre>
-
-<h3>データベースの容量を確認</h3>
-
-データベースの容量を確認するSQLです。テーブルの容量を合計することによって求めています。
+This is a sample SQL output to check the capacity of the table.
 
 <pre>
-# データベースの容量を確認するSQLDBのサイズ
-select 
-  table_schema, floor(sum(data_length)/1024/1024) as database_size_MB
-from 
-  information_schema.tables  
-group by 
-  table_schema 
-order by       
-  sum(data_length+index_length) desc
++ ---------------------------- + ----------------- + ---- ---------- + --------------- + ------------ + ---------- ------ +
+table_name | total_size_MB | data_size_MB | index_size_MB | table_rows | avg_row_length |
++ ---------------------------- + ----------------- + ---- ---------- + --------------- + ------------ + ---------- ------ +
+book | 304 | 179 | 125 | 344669 | 547 |
+| author | 157 | 104 | 52 | 1212336 | 90 |
+Publisher | 138 | 138 | 0 | 2467485 | 58 |
++ ---------------------------- + ----------------- + ---- ---------- + --------------- + ------------ + ---------- ------ +
+</ pre>
+
+<h3> Check the capacity of the database </ h3>
+
+SQL to check the capacity of the database. It is calculated by summing the capacity of the table.
+
+<pre>
+# SQLDB size to check database capacity
+select
+  table_schema, floor (sum (data_length) /1024/1024) as database_size_MB
+from
+  information_schema.tables
+group by group by
+  table_schema
+order by
+  sum (data_length + index_length) desc
 ;
-</pre>
+</ pre>
 
-データベースの容量を確認する出力結果のサンプルです。
+This is a sample output result to check the capacity of the database.
 
 <pre>
-+--------------------+------------------+
-| table_schema       | database_size_MB |
-+--------------------+------------------+
-| perlzemi           |              660 |
-| kimoto_system      |               50 |
-+--------------------+------------------+
-</pre>
++ -------------------- + ------------------ +
+| table_schema | database_size_MB |
++ -------------------- + ------------------ +
+| perlzemi | 660 |
+| kimoto_system | 50 |
++ -------------------- + ------------------ +
+</ pre>

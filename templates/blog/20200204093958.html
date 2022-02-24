@@ -1,25 +1,25 @@
-<h2>インデックスを削除する</h2>
+<h2> Delete index </ h2>
 
-インデックスを削除するには「alter table ～ drop index」コマンドを使用します。
+To drop the index, use the "alter table ~ drop index" command.
 
 <pre>
-alter table テーブル名 drop index インデックス名;
-</pre>
+alter table table name drop index index name;
+</ pre>
 
-bookテーブルのbook_author_idのインデックスを削除するサンプルです。
+This is a sample to delete the index of book_author_id of book table.
 
 <pre>
 alter table book drop index book_author_id;
-</pre>
+</ pre>
 
-インデックスが削除されたかを確認するには、以下の記事を参考にしてください。
-
-<ul>
-  <li><a href="/blog/20200203093958.html">インデックスを確認する</a></li>
-</ul>
-
-インデックスを作成したい場合は、以下の記事を参考にしてください。
+Please refer to the following articles to check if the index has been deleted.
 
 <ul>
-  <li><a href="/blog/20200207093958.html">インデックスを作成する</a></li>
-</ul>
+   <li> <a href="/blog/20200203093958.html"> Check the index </a> </ li>
+</ ul>
+
+If you want to create an index, please refer to the following articles.
+
+<ul>
+   <li> <a href="/blog/20200207093958.html"> Create an index </a> </ li>
+</ ul>

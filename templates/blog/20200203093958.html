@@ -1,26 +1,26 @@
-<h2>インデックスを確認する</h2>
+<h2> Check the index </ h2>
 
-インデックスを確認するには「show create table」コマンドを使用します。
+Use the "show create table" command to see the index.
 
 <pre>
-# インデックスの確認
+# Check index
 show create table book;
-</pre>
+</ pre>
 
-「KEY」という名前の行でインデックスの定義を確認できます。
+You can see the index definition in the row named "KEY".
 
 <pre>
 KEY `book_author_id` (`author_id`)
-</pre>
+</ pre>
 
-インデックスを作成したい場合は、以下の記事を参考にしてください。
-
-<ul>
-  <li><a href="/blog/20200207093958.html">インデックスを作成する</a></li>
-</ul>
-
-インデックスを削除したい場合は、以下の記事を参考にしてください。
+If you want to create an index, please refer to the following articles.
 
 <ul>
-  <li><a href="/blog/20200204093958.html">インデックスを削除する</a></li>
-</ul>
+   <li> <a href="/blog/20200207093958.html"> Create an index </a> </ li>
+</ ul>
+
+If you want to delete the index, please refer to the following article.
+
+<ul>
+   <li> <a href="/blog/20200204093958.html"> Delete index </a> </ li>
+</ ul>

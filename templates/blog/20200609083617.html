@@ -1,27 +1,27 @@
-<h2>フィールドの定義を変更する - alter table change column文</h2>
+<h2> Change field definition --alter table change column statement </ h2>
 
-フィールドの定義を変更するには「alter table change column文」を使用します。
-
-<pre>
-alter table テーブル名 change column 変更対象のフィールド名 変更後のフィールド名 フィールド定義
-</pre>
-
-フィールド定義は、データ型、NULL制約、デフォルト値などを指定できます。
-
-「alter table change column文」のサンプルです。
+Use the "alter table change column statement" to change the field definition.
 
 <pre>
-alter table book change column author author varchar(150) not null defatul '';
-</pre>
+alter table table name change column field name to be changed field name after change field definition
+</ pre>
 
-<h3>alter table change column文で、フィールド名だけを変更できますか?</h3>
+Field definitions can specify data types, NULL constraints, default values, and so on.
 
-フィールド名だけを変更することはMariaDBではできません。フィールド名だけを変更する場合でも、フィールド定義を記述する必要があります。
+This is a sample of "alter table change column statement".
 
-<h3>行が多い場合に「alter table change column文」が遅いです</h3>
+<pre>
+alter table book change column author author varchar (150) not null defatul'';
+</ pre>
 
-行が多い場合に「alter table change column文」が遅いのは、仕方ありません。
+<h3> Is it possible to change only the field name with the alter table change column statement? </ h3>
 
-MariaDBでは、一時的なテーブルを作成して、そこへコピーして、現在の処理に影響がないように、フィールド定義を変更してくれるので待ちましょう。
+You cannot change just the field names in MariaDB. Even if you only change the field name, you still need to write the field definition.
 
-このようなことが起こりますので、データ量が小さいうちに、あるいは、最初から多いことがわかっている場合は、データベースのテーブル設計をきちんとしておくことを推奨します。
+<h3> "alter table change column statement" is slow when there are many rows </ h3>
+
+It is unavoidable that the "alter table change column statement" is slow when there are many rows.
+
+MariaDB will create a temporary table, copy it to it, and change the field definition so that it doesn't affect the current process, so wait.
+
+This can happen, so it's a good idea to have a good database table design if you know that the amount of data is small or large from the beginning.

@@ -1,38 +1,38 @@
-<h2>create table - テーブルを作成する</h2>
+<h2> create table --create table </ h2>
 
-テーブルを作成するには「create table」構文を使います。
+Use the "create table" syntax to create a table.
 
 <pre>
-create table テーブル名 (
-  フィールド定義1,
-  フィールド定義2,
-  フィールド定義n
-) オプション;
-</pre>
+create table table name (
+  Field definition 1,
+  Field definition 2,
+  Field definition n
+) Options;
+</ pre>
 
-本の分類「book_category」テーブルを「create table」構文で作成するサンプルです。
+This is a sample to create a book classification "book_category" table with "create table" syntax.
 
 <pre>
 create table book_category (
   id int primary key auto_increment,
-  name varchar(150) not null default ''
-) engine=InnoDB charset=utf8mb4;
-</pre>
+  name varchar (150) not null default''''
+) engine = InnoDB charset = utf8mb4;
+</ pre>
 
-<h3>テーブルを作成するときの注意点を教えてください</h3>
+<h3> What are the precautions when creating a table? </ H3>
 
-テーブルを作成するときの注意点です。
+Here are some things to keep in mind when creating a table.
 
-<h4>データベースのテーブル名とフィールド名の命名規約</h4>
+<h4> Database table and field name naming conventions </ h4>
 
-実際にWebサービス開発を行うときに、データベースを利用することが多いので、Mojoliciousスタートアップに、データベースのテーブル名とフィールド名の命名規約のトピックを作りました。
+Since I often use databases when actually developing Web services, I created a topic for naming conventions for database table names and field names in Mojolicious startup.
 
-<a href="https://en.webapp.perlzemi.com/blog/20191113074356.html">データベースのテーブル名とフィールド名の命名規約</a>
+<a href="https://en.webapp.perlzemi.com/blog/20191113074356.html"> Database table and field name naming conventions </a>
 
-<h4>ポータブルな「create table」にするためには?</h4>
+<h4> How to make a portable "create table"? </ H4>
 
-MariaDBには、データベースエンジンという概念がありますが、Webサービス開発で利用するデータベースエンジンは、InnoDBになります。InnoDBは、トランザクションをサポートしたデータベースエンジンです。これをオプションで指定します。
+MariaDB has the concept of a database engine, but the database engine used for Web service development is InnoDB. InnoDB is a transaction-supported database engine. Specify this as an option.
 
-MariaDBでは、正しくUTF-8を表現する文字コードの設定は「utf8mb4」です。「utf8」は、3バイトしかなく、4バイトを必要とするUnicodeを表現できません。4バイト表現できる「utf8mb4」を指定します。古いMariaDBでは、utf8mb4がサポートされていないですが、MariaDB入門では、utf8mb4がサポートされているバージョン以降のMariaDBを前提とします。
+In MariaDB, the character code setting that correctly expresses UTF-8 is "utf8mb4". "Utf8" has only 3 bytes and cannot represent Unicode which requires 4 bytes. Specify "utf8mb4" that can be expressed in 4 bytes. Older MariaDB doesn't support utf8mb4, but getting started with MariaDB assumes a MariaDB version or later that supports utf8mb4.
 
-「not null」制約を使った場合は、defaultの指定を行います。MariaDBの設定しだいで、defaultが設定されていない場合に、テーブルの作成が失敗するので、これを回避するためです。
+If you use the "not null" constraint, specify default. This is to avoid this because the table creation will fail if default is not set depending on the MariaDB settings.

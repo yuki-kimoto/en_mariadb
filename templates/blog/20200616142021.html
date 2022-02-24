@@ -1,42 +1,42 @@
-<h2>rootのパスワードを設定する</h2>
+<h2> Set root password </ h2>
 
-rootのパスワードを設定する方法を解説します。
+I will explain how to set the root password.
 
-MariaDBの初期状態ではrootパスワードが設定されていません。次の手順で、rootパスワードを設定しましょう。
+The root password is not set in the initial state of MariaDB. Follow the steps below to set the root password.
 
-設定されていない場合は、だれもで、データベースに対するすべての操作を行うことができ、高いセキュリティリスクが伴います。
+If not set, anyone can perform all operations on the database, which poses a high security risk.
 
-まずrootユーザーで、パスワードなしで、<a href="/blog/20200309102346.html">MariaDBデータベースに接続</a>します。
+First, as the root user, <a href="/blog/20200309102346.html"> connect to the MariaDB database </a> without a password.
 
 <pre>
 mysql -uroot
-</pre>
+</ pre>
 
-データベースを「mysql」に変更します。
+Change the database to "mysql".
 
 <pre>
 use mysql
-</pre>
+</ pre>
 
-<h3>rootパスワードの設定</h3>
+<h3> Set root password </ h3>
 
-rootパスワードを設定します。
+Set the root password.
 
 <pre>
-update user set Password=password('ghrudifA!&') where User='root';
+update user set Password = password ('ghrudifA! &') Where User ='root';
 flush privileges;
-</pre>
+</ pre>
 
-<h3>rootパスワードを忘れてしまった場合</h3>
+<h3> If you forget your root password </ h3>
 
-rootパスワードを忘れてしまった場合は、以下の手順を実行してください。
+If you have forgotten your root password, follow these steps:
 
 <ul>
-  <li><a href="/blog/20200617142021.html">rootのパスワードを再設定する</a></li>
-</ul>
+  <li> <a href="/blog/20200617142021.html"> Reset the root password </a> </ li>
+</ ul>
 
-<h3>MySQLとMariaDBのrootパスワード設定の差分</h3>
+<h3> Difference between MySQL and MariaDB root password settings </ h3>
 
-MySQL 5.7.6以降はrootのパスワード設定は、Passwordフィールドがなくなり、authentication_stringフィールドを使って行うようです。
+Since MySQL 5.7.6, root password setting seems to be done using the authentication_string field instead of the Password field.
 
-2020年6月17日に試したMariaDB 10.1.44では、Passwordフィールドがあり、設定できました。
+In MariaDB 10.1.44, which I tried on June 17, 2020, there was a Password field and I was able to set it.

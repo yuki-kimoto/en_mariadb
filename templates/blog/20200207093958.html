@@ -1,47 +1,47 @@
-<h2>インデックスを作成する</h2>
+<h2> Create an index </ h2>
 
-インデックスを作成するには「alter table ～ add index」コマンドを使用します。
-
-<pre>
-alter table テーブル名 add index インデックス名(カラム名);
-</pre>
-
-bookテーブルのauthor_idにインデックスを作成するサンプルです。インデックス名は、自由につけることができますが、わかりやすい名前を心がけましょう。
+Use the "alter table ~ add index" command to create an index.
 
 <pre>
-alter table book add index book_author_id(author_id);
-</pre>
+alter table table name add index index name (column name);
+</ pre>
 
-作成されたインデックスを確認したい場合は、以下の記事を参考にしてください。
+This is a sample to create an index on author_id of book table. You can use any index name you like, but try to use a descriptive name.
+
+<pre>
+alter table book add index book_author_id (author_id);
+</ pre>
+
+If you want to check the created index, please refer to the following article.
 
 <ul>
-  <li><a href="/blog/20200203093958.html">インデックスを確認する</a></li>
-</ul>
+  <li> <a href="/blog/20200203093958.html"> Check the index </a> </ li>
+</ ul>
 
-インデックスを削除したい場合は、以下の記事を参考にしてください。
+If you want to delete the index, please refer to the following article.
 
 <ul>
-  <li><a href="/blog/20200204093958.html">インデックスを削除する</a></li>
-</ul>
+  <li> <a href="/blog/20200204093958.html"> Delete index </a> </ li>
+</ ul>
 
-<h3>インデックスとは?</h3>
+<h3> What is an index? </ H3>
 
-インデックスとは、行の選択のパフォーマンスを上げるための技術です。
+Indexing is a technique for improving the performance of row selection.
 
-<h4>インデックスでselectが劇的に速くなる</h4>
+<h4> Index makes select dramatically faster </ h4>
 
-1行づつ検索していく線形探索の場合はO(n)の計算量になるのに対し、インデックスを作成すると、バランス木というアルゴリズムで探索するので、O(log(n))の計算量になります。
+In the case of a linear search that searches line by line, the amount of calculation is O (n), but when an index is created, the search is performed using an algorithm called a balance tree, so the amount of calculation is O (log (n)). Become.
 
-一般的に、行数が多いテーブルの検索対象のフィールドに対して、インデックスを作成します。
+In general, index the fields you are searching for in a table with a large number of rows.
 
-インデックスを作成するとselectが劇的に速くなります。
+Creating an index makes select dramatically faster.
 
-<h4>インデックスを作成するデメリット</h4>
+<h4> Disadvantages of creating an index </ h4>
 
-インデックスを作成するデメリットもあります。
+There is also the disadvantage of creating an index.
 
-インデックスを作成すると、インデックスの分だけ、データベースの容量が増えます。
+Creating an index increases the capacity of the database by the amount of the index.
 
-insert時に、インデックスを再構築するので、insertを行う場合のパフォースが少し下がります。
+Since the index is rebuilt at the time of insert, the perforce when inserting is slightly reduced.
 
-必要なフィールドに適切にインデックスを作成しましょう。
+Index the required fields appropriately.

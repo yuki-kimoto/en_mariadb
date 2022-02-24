@@ -1,20 +1,20 @@
-<h2>rootのパスワードを再設定する</h2>
+<h2> Reset root password </ h2>
 
-rootのパスワードの再設定の手順です。rootユーザーのパスワードを忘れて、管理者として入れなくなった場合に活用してください。
+This is the procedure for resetting the root password. Use it if you forget the root user password and cannot enter it as an administrator.
 
-MySQLの設定ファイルに、以下の記述を行いMariaDBサーバーを再起動すると、ユーザー認証なしにログインできます。
+You can log in without user authentication by restarting the MariaDB server with the following description in the MySQL configuration file.
 
 <pre>
 [mysqld]
 skip-grant-tables
-</pre>
+</ pre>
 
-参考: <a href="https://en.ubuntu.perlzemi.com/blog/20200417174004.html">UbuntuにおけるMariaDB再起動</a>
+Reference: <a href="https://en.ubuntu.perlzemi.com/blog/20200417174004.html"> Restart MariaDB on Ubuntu </a>
 
-この状態で、rootパスワードの設定の手順を行ってください。
+In this state, follow the procedure for setting the root password.
 
 <ul>
-  <li><a href="/blog/20200616142021.html">rootのパスワードを設定する</a></li>
-</ul>
+   <li> <a href="/blog/20200616142021.html"> Set root password </a> </ li>
+</ ul>
 
-rootパスワードを再設定した後は、MariaDB設定ファイルの「skip-grant-tables」を削除して、再起動することを忘れないようにしましょう。
+After resetting the root password, be sure to remove the "skip-grant-tables" in the MariaDB config file and reboot.

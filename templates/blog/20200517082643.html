@@ -1,13 +1,13 @@
-<h2>ユーザーの一覧を表示する</h2>
+<h2> Display a list of users </ h2>
 
-ユーザーの一覧を表示するには「mysql.user」テーブルの中身を表示します。
+To see the list of users, view the contents of the "mysql.user" table.
 
 <pre>
 select * from mysql.user;
-</pre>
+</ pre>
 
-列が長いので「\G」を使って、縦に表示すると見やすいでしょう。
+Since the column is long, it will be easier to see if you use "\ G" to display it vertically.
 
 <pre>
-select * from mysql.user\G
-</pre>
+select * from mysql.user \ G
+</ pre>

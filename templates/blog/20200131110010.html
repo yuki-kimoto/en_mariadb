@@ -1,45 +1,45 @@
-<h2>データベースエンジンの種類を確認する</h2>
+<h2> Check the type of database engine </ h2>
 
-MariaDBで、データベースエンジンの種類を確認するSQLコマンドを紹介します。
+In MariaDB, I will introduce a SQL command to check the type of database engine.
 
-すべてのテーブルのデータベースエンジンをInnoDBにしているはずが、何かの間違いで、MyISAMになっているテーブルがあるという場合がときどきあります。
+I'm supposed to have InnoDB as the database engine for all my tables, but sometimes I make a mistake and some tables are MyISAM.
 
-こういう場合に、すべてのテーブルで、データベースエンジンを確認できると便利です。
+In such cases, it would be useful to be able to see the database engine on every table.
 
-<h3>データベースエンジンの種類を確認する</h3>
+<h3> Check the type of database engine </ h3>
 
-データベースエンジンの種類を確認するSQLコマンドです。
+A SQL command that checks the type of database engine.
 
-information_schema.tablesのengineフィールドで、データベースエンジンの種類を確認できます。
+You can see the type of database engine in the engine field of information_schema.tables.
 
 <pre>
 select
   table_name, engine
-from 
-  information_schema.tables  
+from
+  information_schema.tables
 where
-  table_schema=database()  
+  table_schema = database ()
 order by
   table_name
 ;
-</pre>
+</ pre>
 
-出力結果の例です。
+This is an example of the output result.
 
 <pre>
-+-----------------------+--------+
-| table_name            | engine |
-+-----------------------+--------+
-| book                  | InnoDB |
-| author                | InnoDB |
-| publisher             | InnoDB |
-+-----------------------+--------+
-</pre>
++ ----------------------- + -------- +
+| table_name | engine |
++ ----------------------- + -------- +
+book | InnoDB |
+| author | InnoDB |
+| publisher | InnoDB |
++ ----------------------- + -------- +
+</ pre>
 
-<h3>データベースエンジンを変更する</h3>
+<h3> Change the database engine </ h3>
 
-データベースエンジンを、変更したい場合は「alter table change database engine」コマンドを使用します。
+If you want to change the database engine, use the "alter table change database engine" command.
 
 <ul>
-  <li><a href="/blog/20200130110010.html">データベースエンジンを変更する</a></li>
-</ul>
+  <li> <a href="/blog/20200130110010.html"> Change the database engine </a> </ li>
+</ ul>

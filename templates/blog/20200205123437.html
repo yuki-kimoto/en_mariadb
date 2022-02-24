@@ -1,19 +1,19 @@
-<h2>外部キー制約を削除する</h2>
+<h2> Remove foreign key constraint </ h2>
 
-外部キー制約を削除するには「alter table drop foreign key」コマンドを実行します。
+To remove the foreign key constraint, run the "alter table drop foreign key" command.
 
 <pre>
-alter table テーブル名 drop foreign key 外部キー制約名
-</pre>
+alter table table name drop foreign key foreign key constraint name
+</ pre>
 
-bookテーブルのbook_ibfk_1という外部キー制約を削除するサンプルです。
+This is a sample to remove the foreign key constraint called book_ibfk_1 in the book table.
 
 <pre>
 alter table book drop foreign key book_ibfk_1
-</pre>
+</ pre>
 
-どのような外部キー制約が設定されているかを確認する場合は、以下の記事を参考にしてください。
+If you want to see what foreign key constraints are set, please refer to the following articles.
 
 <ul>
-  <li><a href="/blog/20200205123437.html">外部キー制約を確認する</a></li>
-</ul>
+   <li> <a href="/blog/20200205123437.html"> Check foreign key constraints </a> </ li>
+</ ul>

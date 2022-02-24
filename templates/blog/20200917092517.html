@@ -1,13 +1,13 @@
-<h2>最後に挿入した行のIDを取得する - last_insert_id関数</h2>
+<h2> Get the ID of the last inserted row --last_insert_id function </ h2>
 
-最後に挿入した行のIDを取得するには<b>last_insert_id関数</b>を使用します。
+Use the <b> last_insert_id function </ b> to get the ID of the last inserted row.
 
 <pre>
-select last_insert_id();
-</pre>
+select last_insert_id ();
+</ pre>
 
-ユーザーデータを挿入した場合に、そのIDを知りたいという場合にlast_insert_id関数を使用します。
+If you have inserted user data and want to know its ID, use the last_insert_id function.
 
-auto_incrementがある列に指定されている場合にMariaDBは、それを整数で管理しています。行が挿入されるとインクリメントされます。インクリメントされた値を取得できます。
+If auto_increment is specified for a column, MariaDB manages it as an integer. It is incremented when a row is inserted. You can get the incremented value.
 
-他のクライアントが並列に存在して、同時に行を挿入している場合でも安心してください。トランザクションを意識せずに、正しいIDを取得できます。
+Rest assured that other clients are in parallel and are inserting rows at the same time. You can get the correct ID without being aware of the transaction.
